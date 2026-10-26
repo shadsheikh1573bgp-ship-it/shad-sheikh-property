@@ -1,153 +1,156 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="ar2is7STCx-o9BWBHFEFSvNGG_nxQEi6LwZipvyVIdU">
-<meta name="description" content="Shad Sheikh Property - निजी MVR Register और जमीन रकबा कैलकुलेटर">
+<meta name="description" content="Shad Sheikh Property - निजी MVR Register, जमीन रकबा कैलकुलेटर, Stamp Duty और Registration Fee">
+<meta name="theme-color" content="#101528">
 <title>Shad Sheikh Property | Shad Sheikh</title>
 
 <style>
 :root {
-  --bg:#101528;
-  --panel:#1b2540;
-  --field:#0f172b;
-  --line:#35415f;
-  --text:#eef3ff;
-  --muted:#aab6d1;
-  --green:#00c2a8;
-  --gold:#ffd166;
-  --blue:#4da3ff;
-  --red:#c13b3b;
+  --green: #00c2a8;
+  --gold: #ffd166;
+  --bg: #101528;
+  --ink: #eef3ff;
+  --muted: #aab6d1;
+  --line: #35415f;
+  --purple: #a78bfa;
+  --blue: #4da3ff;
 }
-* { box-sizing:border-box; }
+* { box-sizing: border-box; }
 body {
-  margin:0;
-  background:radial-gradient(circle at top,#26365e,#101528 65%);
-  font-family:Arial,"Noto Sans Devanagari",sans-serif;
-  color:var(--text);
+  margin: 0;
+  background: radial-gradient(circle at 10% 0%, #26365e, #151d35 40%, #0d1222);
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  color: var(--ink);
 }
 header {
-  padding:28px 18px;
-  background:linear-gradient(120deg,#080d1d,#123d50,#492c86);
-  border-bottom:4px solid var(--gold);
+  background: linear-gradient(125deg, #080d1d, #123d50 52%, #492c86);
+  padding: 32px 18px;
+  border-bottom: 5px solid var(--gold);
 }
-.wrap { max-width:1100px; margin:auto; }
-header h1 { margin:0; font-size:clamp(28px,5vw,44px); }
-header p { color:#d7f7ff; margin-bottom:0; }
-main { padding:12px 16px 30px; }
+.wrap { max-width: 1050px; margin: auto; padding: 0 18px; }
+header h1 { margin: 0; font-size: clamp(30px, 5vw, 46px); }
+header p { color: #d7f7ff; }
+main { max-width: 1050px; margin: auto; }
 .panel {
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:20px;
-  margin:16px 0;
-  box-shadow:0 8px 28px #0003;
+  background: linear-gradient(145deg, #1b2540, #172037);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  margin: 20px 0;
+  box-shadow: 0 8px 28px #0003;
 }
-h2 { margin-top:0; font-size:20px; color:#83e8e0; }
+h2 { font-size: 20px; margin: 0 0 16px; color: #83e8e0; }
 .grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:13px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
 }
 .field label {
-  display:block;
-  margin-bottom:6px;
-  font-size:13px;
-  font-weight:bold;
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #d5def4;
 }
-input,select,textarea {
-  width:100%;
-  padding:11px;
-  border:1px solid #485779;
-  border-radius:9px;
-  background:var(--field);
-  color:var(--text);
-  font:inherit;
-  min-width:0;
-}
-input:focus,select:focus,textarea:focus {
-  outline:2px solid var(--blue);
-}
-textarea { min-height:75px; resize:vertical; }
-.actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:15px;
+.field input, .field select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #485779;
+  border-radius: 9px;
+  background: #0f172b;
+  color: white;
+  font: inherit;
 }
 .btn {
-  border:0;
-  border-radius:9px;
-  padding:11px 15px;
-  font-weight:bold;
-  cursor:pointer;
-  background:linear-gradient(120deg,#00a98f,#246fe5);
-  color:white;
+  border: 0;
+  border-radius: 9px;
+  padding: 11px 15px;
+  background: linear-gradient(120deg, #00a98f, #246fe5);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
-.btn.gold { background:var(--gold); color:#30230a; }
-.btn.red { background:var(--red); }
-.btn.gray { background:#35415f; }
+.btn.alt { background: #ffdf83; color: #30230a; }
+.btn.red { background: #b93648; color: white; }
+.actions { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 15px; }
+.hidden { display: none !important; }
+.hint { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.searchrow { display: flex; gap: 10px; }
+.searchrow input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #485779;
+  border-radius: 9px;
+  background: #0f172b;
+  color: white;
+}
 .cards {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:10px;
-  margin-top:14px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
 }
 .mini {
-  padding:14px;
-  border:1px solid #46527b;
-  border-radius:11px;
-  background:#24304d;
-  min-width:0;
+  background: linear-gradient(145deg, #24365b, #30254f);
+  border: 1px solid #46527b;
+  border-radius: 12px;
+  padding: 14px;
+  min-width: 0;
 }
-.mini span { display:block; font-size:12px; color:#bdc9e4; }
+.mini span { display: block; color: #bdc9e4; font-size: 12px; }
 .mini strong {
-  display:block;
-  color:var(--gold);
-  font-size:19px;
-  margin-top:6px;
-  overflow-wrap:anywhere;
+  display: block;
+  font-size: 19px;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+  color: var(--gold);
 }
-.searchrow { display:flex; gap:9px; }
-.searchrow input { flex:1; }
 .results {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-  margin-top:15px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
 }
 .record {
-  padding:15px;
-  background:#141d33;
-  border:1px solid #394766;
-  border-left:4px solid #a78bfa;
-  border-radius:12px;
-  overflow-wrap:anywhere;
+  border: 1px solid #394766;
+  border-left: 4px solid var(--purple);
+  border-radius: 12px;
+  padding: 15px;
+  background: #18223b;
+  overflow-wrap: anywhere;
 }
-.record h3 { margin-top:0; color:#a8dfff; }
-.record p { font-size:14px; line-height:1.5; }
+.record h3 { margin: 0 0 8px; color: #a8dfff; }
+.record p { margin: 7px 0; font-size: 14px; }
 .pill {
-  display:inline-block;
-  background:#40326a;
-  border-radius:20px;
-  padding:4px 8px;
-  font-size:12px;
+  display: inline-block;
+  background: #40326a;
+  color: #e5dcff;
+  border-radius: 99px;
+  padding: 4px 8px;
+  font-size: 12px;
 }
-.hint { color:var(--muted); font-size:13px; line-height:1.6; }
-.hidden { display:none !important; }
-.login { max-width:430px; margin:25px auto; }
-.error { color:#ff8e9b; }
-footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
-@media(max-width:700px) {
-  .grid,.cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .results { grid-template-columns:1fr; }
-  .panel { padding:14px; }
-  .searchrow { flex-direction:column; }
+.login { max-width: 420px; margin: 28px auto; }
+.error { color: #ff8e9b; font-size: 13px; }
+.conversion {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
 }
-@media(max-width:430px) {
-  .grid,.cards { grid-template-columns:1fr; }
+footer { text-align: center; padding: 24px; color: var(--muted); font-size: 12px; }
+
+@media (max-width: 700px) {
+  .grid, .conversion { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .results, .cards { grid-template-columns: 1fr; }
+  .panel { padding: 15px; }
+  .searchrow { flex-direction: column; }
+}
+@media (max-width: 430px) {
+  .grid, .conversion { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -156,7 +159,7 @@ footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
 <header>
   <div class="wrap">
     <h1>Shad Sheikh Property</h1>
-    <p>मौजा MVR · Stamp Duty · Registration Fee · जमीन रकबा रजिस्टर</p>
+    <p>मौजा MVR · Stamp Duty · Registration Fee का निजी रजिस्टर</p>
   </div>
 </header>
 
@@ -164,11 +167,11 @@ footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
 
 <section id="loginPanel" class="panel login">
   <h2>🔐 पासवर्ड से लॉगिन</h2>
-  <p class="hint">अपना निजी रजिस्टर खोलने के लिए पासवर्ड डालें।</p>
+  <p class="hint">प्राइवेट रजिस्टर खोलने के लिए पासवर्ड डालें।</p>
   <form id="loginForm">
     <div class="field">
       <label for="password">पासवर्ड</label>
-      <input id="password" type="password" required autocomplete="current-password">
+      <input id="password" type="password" required placeholder="पासवर्ड डालें">
     </div>
     <div class="actions">
       <button class="btn" type="submit">लॉगिन करें</button>
@@ -180,286 +183,273 @@ footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
 <div id="app" class="hidden">
 
 <section class="panel">
-  <h2>मौजा रिकॉर्ड खोजें</h2>
+  <h2>मौजा खोजें</h2>
   <div class="searchrow">
-    <input id="search" placeholder="मौजा, अंचल या थाना खोजें..." autocomplete="off">
-    <button id="clearSearch" class="btn gold" type="button">साफ करें</button>
+    <input id="search" placeholder="मौजा का नाम लिखें">
+    <button id="clearSearch" class="btn alt" type="button">साफ करें</button>
   </div>
   <div id="results" class="results"></div>
-  <p id="noResults" class="hint">अभी कोई रिकॉर्ड नहीं है। नीचे नया रिकॉर्ड जोड़ें।</p>
+  <p id="noResults" class="hint">अभी कोई रिकॉर्ड नहीं है। नीचे नया रिकॉर्ड सेव करें।</p>
 </section>
 
 <section class="panel">
   <h2 id="formTitle">＋ नया मौजा रिकॉर्ड</h2>
+
   <form id="recordForm">
     <input type="hidden" id="recordId">
+
     <div class="grid">
       <div class="field">
         <label for="mauja">मौजा का नाम *</label>
         <input id="mauja" required placeholder="जैसे Kabirpur">
       </div>
+
       <div class="field">
         <label for="anchal">अंचल / सर्किल</label>
         <input id="anchal" placeholder="जैसे Nathnagar">
       </div>
+
       <div class="field">
         <label for="thana">थाना नंबर</label>
-        <input id="thana" placeholder="जैसे 326">
+        <input id="thana" placeholder="थाना नंबर">
       </div>
+
+      <div class="field">
+        <label for="extent">रकबा / डिसमिल *</label>
+        <input id="extent" type="number" min="0.01" step="any" required placeholder="जैसे 1.656">
+      </div>
+
+      <div class="field">
+        <label for="consideration">Consideration Value (₹) *</label>
+        <input id="consideration" type="number" min="1" step="1" required placeholder="जैसे 993600">
+      </div>
+
       <div class="field">
         <label for="landType">जमीन का प्रकार *</label>
         <select id="landType" required>
-          <option value="">चुनें</option>
+          <option value="">जमीन चुनें</option>
           <option value="Residential">Residential (आवासीय)</option>
           <option value="Commercial">Commercial (व्यावसायिक)</option>
         </select>
       </div>
-      <div class="field">
-        <label for="extent">रकबा / डिसमिल *</label>
-        <input id="extent" type="number" min="0.001" step="any" required placeholder="1.656">
-      </div>
-      <div class="field">
-        <label for="consideration">Consideration Value (₹) *</label>
-        <input id="consideration" type="number" min="0" step="any" required placeholder="994000">
-      </div>
-      <div class="field">
-        <label for="additionalDuty">अतिरिक्त Stamp Duty (₹)</label>
-        <input id="additionalDuty" type="number" min="0" step="any" value="0">
-      </div>
-      <div class="field">
-        <label for="recordDate">रिकॉर्ड की तारीख</label>
-        <input id="recordDate" type="date">
-      </div>
-      <div class="field">
-        <label for="notes">नोट / जानकारी</label>
-        <input id="notes" placeholder="अतिरिक्त विवरण">
-      </div>
     </div>
 
     <div class="cards">
-      <div class="mini"><span>MVR दर प्रति डिसमिल</span><strong id="ratePreview">₹0</strong></div>
-      <div class="mini"><span>अनुमानित MVR Value</span><strong id="mvrPreview">₹0</strong></div>
-      <div class="mini"><span>Chargeable Value</span><strong id="chargePreview">₹0</strong></div>
-      <div class="mini"><span>Stamp Duty (7%)</span><strong id="stampPreview">₹0</strong></div>
-      <div class="mini"><span>Registration Fee (2%)</span><strong id="regPreview">₹0</strong></div>
-      <div class="mini"><span>Additional Stamp Duty</span><strong id="addPreview">₹0</strong></div>
-      <div class="mini"><span>LLR (फिक्स)</span><strong>₹550</strong></div>
-      <div class="mini"><span>Discore (फिक्स)</span><strong>₹1,000</strong></div>
-      <div class="mini"><span>Total Challan</span><strong id="totalPreview">₹0</strong></div>
+      <div class="mini">
+        <span>MVR Value (₹)</span>
+        <strong id="mvrPreview">₹0</strong>
+      </div>
+      <div class="mini">
+        <span>Stamp Duty (7%)</span>
+        <strong id="stampPreview">₹0</strong>
+      </div>
+      <div class="mini">
+        <span>Additional Stamp Duty</span>
+        <strong id="additionalPreview">₹0</strong>
+      </div>
+      <div class="mini">
+        <span>Registration Fee (2%)</span>
+        <strong id="registrationPreview">₹0</strong>
+      </div>
+      <div class="mini">
+        <span>LLR (फिक्स)</span>
+        <strong>₹550</strong>
+      </div>
+      <div class="mini">
+        <span>Discore (फिक्स)</span>
+        <strong>₹1,000</strong>
+      </div>
+      <div class="mini">
+        <span>Total Challan</span>
+        <strong id="totalPreview">₹0</strong>
+      </div>
     </div>
 
     <div class="actions">
       <button class="btn" id="saveBtn" type="submit">रिकॉर्ड सेव करें</button>
-      <button class="btn gold" id="resetBtn" type="button">नया फॉर्म</button>
+      <button class="btn alt" id="resetBtn" type="button">नया फॉर्म</button>
     </div>
   </form>
+
   <p class="hint">
-    डिफॉल्ट गणना: Residential ₹6,00,000 और Commercial ₹8,00,000 प्रति डिसमिल।
-    Stamp Duty 7% और Registration Fee 2% Consideration/Chargeable Value में से
-    अधिक राशि पर कैलकुलेट होती है। सरकारी दर और लागू फीस की पुष्टि आधिकारिक
-    स्रोत से करें; ये दरें अनुमान के लिए हैं।
+    गणना: Stamp Duty = Consideration Value का 7%,
+    Registration Fee = Consideration Value का 2%,
+    LLR ₹550 और Discore ₹1,000। MVR दर अनुमानित है।
+    सरकारी शुल्क और MVR की पुष्टि आधिकारिक पोर्टल से करें।
   </p>
 </section>
 
 <section class="panel">
   <h2>रकबा कन्वर्टर</h2>
-  <div class="grid">
+
+  <div class="conversion">
     <div class="field">
       <label for="decimal">डिसमिल</label>
       <input id="decimal" type="number" min="0" step="any" placeholder="1">
     </div>
     <div class="field">
-      <label for="dhur">धूर (36 sq ft)</label>
+      <label for="dhur">धूर</label>
       <input id="dhur" type="number" min="0" step="any" placeholder="1">
     </div>
     <div class="field">
-      <label for="dhurki">धूरकी (1.8 sq ft)</label>
+      <label for="dhurki">धूरकी</label>
       <input id="dhurki" type="number" min="0" step="any" placeholder="1">
     </div>
   </div>
+
   <div class="cards">
-    <div class="mini"><span>Square Feet</span><strong id="sqft">0 sq ft</strong></div>
-    <div class="mini"><span>डिसमिल</span><strong id="decimalOut">0</strong></div>
-    <div class="mini"><span>वर्ग मीटर</span><strong id="sqm">0 m²</strong></div>
+    <div class="mini">
+      <span>Square Feet</span>
+      <strong id="sqft">0 sq ft</strong>
+    </div>
+    <div class="mini">
+      <span>बराबर डिसमिल</span>
+      <strong id="decimalOut">0</strong>
+    </div>
+    <div class="mini">
+      <span>वर्ग मीटर</span>
+      <strong id="sqm">0 m²</strong>
+    </div>
   </div>
-  <p class="hint">1 डिसमिल = 435.6 sq ft ≈ 40.4686 वर्ग मीटर। स्थानीय धूर/धूरकी माप अलग हो सकता है।</p>
+
+  <p class="hint">
+    कन्वर्ज़न: 1 डिसमिल = 435.6 sq ft,
+    1 धूर = 36 sq ft और 1 धूरकी = 1.8 sq ft।
+    स्थानीय माप की पुष्टि कर लें।
+  </p>
 </section>
 
 <section class="panel">
-  <h2>बैकअप और अकाउंट</h2>
+  <h2>बैकअप और सुरक्षा</h2>
   <div class="actions">
-    <button id="export" class="btn gold" type="button">JSON बैकअप डाउनलोड</button>
-    <label class="btn gold" for="importFile">बैकअप इम्पोर्ट</label>
-    <input id="importFile" type="file" accept=".json,application/json" class="hidden">
+    <button id="export" class="btn alt" type="button">JSON बैकअप डाउनलोड</button>
+    <label class="btn alt" for="importFile">बैकअप इम्पोर्ट</label>
+    <input id="importFile" type="file" accept="application/json" class="hidden">
     <button id="logout" class="btn red" type="button">लॉगआउट</button>
   </div>
   <p class="hint">
-    रिकॉर्ड इसी ब्राउज़र में सेव होते हैं। डिवाइस बदलने या ब्राउज़र डेटा मिटाने से
-    पहले JSON बैकअप डाउनलोड करें। यह कोड अपने-आप ऑनलाइन डेटाबेस नहीं बनाता।
+    रिकॉर्ड इसी ब्राउज़र में सेव होते हैं। ब्राउज़र डेटा मिटने या डिवाइस बदलने पर
+    रिकॉर्ड खो सकते हैं, इसलिए नियमित बैकअप डाउनलोड करें।
   </p>
 </section>
 
 </div>
 </main>
 
-<footer>Shad Sheikh Property · Private MVR Register</footer>
+<footer>Shad Sheikh Property · निजी MVR रजिस्टर</footer>
 
 <script>
-(function () {
+(() => {
   "use strict";
 
   const $ = id => document.getElementById(id);
-  const KEY = "shadSheikhPropertyRecordsV2";
+  const KEY = "shadSheikhPropertyRecordsV1";
+
+  // यह केवल सामान्य लॉगिन स्क्रीन है, असली सर्वर-सुरक्षा नहीं।
   const PASS = "Shad@1573";
-  const LLR = 550;
-  const DISCORE = 1000;
+
   let records = [];
 
   try {
-    const saved = JSON.parse(localStorage.getItem(KEY) || "[]");
-    if (Array.isArray(saved)) records = saved;
+    records = JSON.parse(localStorage.getItem(KEY) || "[]");
+    if (!Array.isArray(records)) records = [];
   } catch (e) {
     records = [];
   }
 
-  const num = value => {
-    const result = Number(value);
-    return Number.isFinite(result) ? result : 0;
-  };
+  const number = value => Number(value) || 0;
 
-  const money = value => "₹" + Math.round(num(value)).toLocaleString("en-IN");
+  function money(value) {
+    return "₹" + Math.round(number(value)).toLocaleString("en-IN");
+  }
 
-  const fmt = (value, digits = 4) =>
-    num(value).toLocaleString("en-IN", { maximumFractionDigits: digits });
-
-  const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  }[ch]));
+  function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[char]));
+  }
 
   function persist() {
     try {
       localStorage.setItem(KEY, JSON.stringify(records));
       return true;
     } catch (error) {
-      alert("रिकॉर्ड सेव नहीं हो सका। JSON बैकअप डाउनलोड करें और ब्राउज़र स्टोरेज जाँचें।");
+      alert("रिकॉर्ड सेव नहीं हुआ। ब्राउज़र स्टोरेज की जगह जाँचें।");
       return false;
     }
   }
 
   function calculate() {
-    const area = num($("extent").value);
+    const area = number($("extent").value);
+    const consideration = number($("consideration").value);
     const type = $("landType").value;
-    const rate = type === "Residential" ? 600000 :
-                 type === "Commercial" ? 800000 : 0;
-    const mvr = area * rate;
-    const consideration = num($("consideration").value);
-    const chargeable = Math.max(mvr, consideration);
-    const stamp = Math.round(chargeable * 0.07);
-    const registration = Math.round(chargeable * 0.02);
-    const additional = num($("additionalDuty").value);
-    const total = stamp + registration + additional + LLR + DISCORE;
 
-    $("ratePreview").textContent = money(rate);
+    const rate = type === "Residential"
+      ? 600000
+      : type === "Commercial"
+      ? 800000
+      : 0;
+
+    const mvr = area * rate;
+    const stamp = Math.round(consideration * 0.07);
+    const additional = 0;
+    const registration = Math.round(consideration * 0.02);
+    const llr = 550;
+    const discore = 1000;
+    const total = stamp + additional + registration + llr + discore;
+
     $("mvrPreview").textContent = money(mvr);
-    $("chargePreview").textContent = money(chargeable);
     $("stampPreview").textContent = money(stamp);
-    $("regPreview").textContent = money(registration);
-    $("addPreview").textContent = money(additional);
+    $("additionalPreview").textContent = money(additional);
+    $("registrationPreview").textContent = money(registration);
     $("totalPreview").textContent = money(total);
 
     return {
-      area, type, rate, mvr, consideration, chargeable,
-      stamp, registration, additional, llr: LLR,
-      discore: DISCORE, total
+      area,
+      type,
+      rate,
+      mvr,
+      consideration,
+      stamp,
+      additional,
+      registration,
+      llr,
+      discore,
+      total
     };
   }
 
-  ["extent", "landType", "consideration", "additionalDuty"]
-    .forEach(id => $(id).addEventListener("input", calculate));
+  ["extent", "consideration", "landType"].forEach(id => {
+    $(id).addEventListener("input", calculate);
+    $(id).addEventListener("change", calculate);
+  });
 
   function resetForm() {
     $("recordForm").reset();
     $("recordId").value = "";
-    $("additionalDuty").value = "0";
     $("formTitle").textContent = "＋ नया मौजा रिकॉर्ड";
     $("saveBtn").textContent = "रिकॉर्ड सेव करें";
     calculate();
   }
 
-  function render() {
-    const query = $("search").value.trim().toLocaleLowerCase();
-    const list = records.filter(record => {
-      const text = [
-        record.mauja, record.anchal, record.thana, record.notes
-      ].join(" ").toLocaleLowerCase();
-      return text.includes(query);
-    });
-
-    $("results").innerHTML = list.map(record => `
-      <article class="record">
-        <h3>${esc(record.mauja)}
-          <span class="pill">${esc(record.type)}</span>
-        </h3>
-        <p><b>अंचल:</b> ${esc(record.anchal || "—")}
-          &nbsp; <b>थाना:</b> ${esc(record.thana || "—")}</p>
-        <p><b>रकबा:</b> ${fmt(record.area)} डिसमिल</p>
-        <p><b>MVR दर:</b> ${money(record.rate)} प्रति डिसमिल</p>
-        <p><b>MVR Value:</b> ${money(record.mvr)}</p>
-        <p><b>Consideration:</b> ${money(record.consideration)}</p>
-        <p><b>Chargeable Value:</b> ${money(record.chargeable)}</p>
-        <p><b>Stamp Duty:</b> ${money(record.stamp)}</p>
-        <p><b>Registration Fee:</b> ${money(record.registration)}</p>
-        <p><b>Additional Duty:</b> ${money(record.additional)}</p>
-        <p><b>LLR:</b> ${money(record.llr)} &nbsp;
-           <b>Discore:</b> ${money(record.discore)}</p>
-        <p><b>Total Challan:</b> ${money(record.total)}</p>
-        <p><b>तारीख:</b> ${esc(record.date || "—")}</p>
-        ${record.notes ? `<p><b>नोट:</b> ${esc(record.notes)}</p>` : ""}
-        <div class="actions">
-          <button class="btn gold" type="button" data-edit="${esc(record.id)}">एडिट</button>
-          <button class="btn red" type="button" data-delete="${esc(record.id)}">डिलीट</button>
-        </div>
-      </article>
-    `).join("");
-
-    $("noResults").classList.toggle("hidden", list.length > 0);
-  }
-
-  function showApp() {
-    $("loginPanel").classList.add("hidden");
-    $("app").classList.remove("hidden");
-    render();
-    calculate();
-  }
-
-  $("loginForm").addEventListener("submit", event => {
-    event.preventDefault();
-    if ($("password").value === PASS) {
-      sessionStorage.setItem("shadPropertyLoggedIn", "yes");
-      $("loginError").textContent = "";
-      showApp();
-    } else {
-      $("loginError").textContent = "पासवर्ड गलत है।";
-    }
-  });
-
-  $("logout").addEventListener("click", () => {
-    sessionStorage.removeItem("shadPropertyLoggedIn");
-    $("app").classList.add("hidden");
-    $("loginPanel").classList.remove("hidden");
-    $("password").value = "";
-  });
+  $("resetBtn").addEventListener("click", resetForm);
 
   $("recordForm").addEventListener("submit", event => {
     event.preventDefault();
 
     const calculation = calculate();
+
+    if (!calculation.area || !calculation.type || !calculation.consideration) {
+      alert("रकबा, Consideration Value और जमीन का प्रकार भरें।");
+      return;
+    }
+
     const id = $("recordId").value || (
-      Date.now().toString() + "-" + Math.random().toString(36).slice(2, 8)
+      Date.now() + "-" + Math.random().toString(36).slice(2, 7)
     );
 
     const record = {
@@ -468,12 +458,11 @@ footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
       mauja: $("mauja").value.trim(),
       anchal: $("anchal").value.trim(),
       thana: $("thana").value.trim(),
-      date: $("recordDate").value,
-      notes: $("notes").value.trim(),
       updatedAt: new Date().toISOString()
     };
 
     const index = records.findIndex(item => item.id === id);
+
     if (index >= 0) {
       records[index] = record;
     } else {
@@ -482,13 +471,45 @@ footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
 
     if (persist()) {
       resetForm();
-      $("search").value = record.mauja;
       render();
-      $("results").scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 
-  $("resetBtn").addEventListener("click", resetForm);
+  function render() {
+    const query = $("search").value.trim().toLowerCase();
+
+    const filtered = records.filter(record => [
+      record.mauja,
+      record.anchal,
+      record.thana,
+      record.type
+    ].join(" ").toLowerCase().includes(query));
+
+    $("results").innerHTML = filtered.map(record => `
+      <article class="record">
+        <h3>
+          ${escapeHTML(record.mauja)}
+          <span class="pill">${escapeHTML(record.type)}</span>
+        </h3>
+        <p><b>अंचल:</b> ${escapeHTML(record.anchal || "—")}</p>
+        <p><b>थाना नंबर:</b> ${escapeHTML(record.thana || "—")}</p>
+        <p><b>रकबा:</b> ${number(record.area).toLocaleString("en-IN")} डिसमिल</p>
+        <p><b>Consideration Value:</b> ${money(record.consideration)}</p>
+        <p><b>MVR Value:</b> ${money(record.mvr)}</p>
+        <p><b>Stamp Duty:</b> ${money(record.stamp)}</p>
+        <p><b>Registration Fee:</b> ${money(record.registration)}</p>
+        <p><b>LLR:</b> ₹550 &nbsp; <b>Discore:</b> ₹1,000</p>
+        <p><b>Total Challan:</b> ${money(record.total)}</p>
+        <div class="actions">
+          <button class="btn alt" data-edit="${escapeHTML(record.id)}" type="button">एडिट</button>
+          <button class="btn red" data-delete="${escapeHTML(record.id)}" type="button">डिलीट</button>
+        </div>
+      </article>
+    `).join("");
+
+    $("noResults").classList.toggle("hidden", filtered.length > 0);
+  }
+
   $("search").addEventListener("input", render);
 
   $("clearSearch").addEventListener("click", () => {
@@ -508,46 +529,43 @@ footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
       $("mauja").value = record.mauja || "";
       $("anchal").value = record.anchal || "";
       $("thana").value = record.thana || "";
+      $("extent").value = record.area || "";
+      $("consideration").value = record.consideration || "";
       $("landType").value = record.type || "";
-      $("extent").value = record.area ?? "";
-      $("consideration").value = record.consideration ?? "";
-      $("additionalDuty").value = record.additional ?? 0;
-      $("recordDate").value = record.date || "";
-      $("notes").value = record.notes || "";
 
       $("formTitle").textContent = "✎ रिकॉर्ड एडिट करें";
       $("saveBtn").textContent = "बदलाव सेव करें";
+
       calculate();
       $("recordForm").scrollIntoView({ behavior: "smooth" });
     }
 
     if (deleteButton) {
       const record = records.find(item => item.id === deleteButton.dataset.delete);
-      if (record && confirm("क्या " + record.mauja + " का रिकॉर्ड डिलीट करना है?")) {
+      if (!record) return;
+
+      if (confirm(record.mauja + " का रिकॉर्ड डिलीट करना है?")) {
         records = records.filter(item => item.id !== record.id);
-        if (persist()) render();
+        persist();
+        render();
       }
     }
   });
 
-  function download(filename, content, type) {
-    const blob = new Blob([content], { type });
+  $("export").addEventListener("click", () => {
+    const blob = new Blob(
+      [JSON.stringify(records, null, 2)],
+      { type: "application/json" }
+    );
+
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.href = url;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  }
 
-  $("export").addEventListener("click", () => {
-    download(
-      "shad-sheikh-property-backup-" + new Date().toISOString().slice(0, 10) + ".json",
-      JSON.stringify(records, null, 2),
-      "application/json"
-    );
+    link.href = url;
+    link.download = "shad-sheikh-property-backup.json";
+    link.click();
+
+    URL.revokeObjectURL(url);
   });
 
   $("importFile").addEventListener("change", async event => {
@@ -556,18 +574,20 @@ footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
 
     try {
       const incoming = JSON.parse(await file.text());
-      if (!Array.isArray(incoming)) throw new Error("Invalid backup");
 
-      const valid = incoming.every(record =>
-        record && typeof record === "object" &&
-        record.id != null && typeof record.mauja === "string"
-      );
-      if (!valid) throw new Error("Invalid records");
+      if (!Array.isArray(incoming)) {
+        throw new Error("Invalid backup");
+      }
 
-      if (confirm("बैकअप के रिकॉर्ड मौजूदा रिकॉर्ड के साथ जोड़ें? समान ID वाले रिकॉर्ड अपडेट होंगे।")) {
+      if (confirm("बैकअप के रिकॉर्ड मौजूदा रिकॉर्ड के साथ जोड़ें?")) {
         const map = new Map(records.map(record => [record.id, record]));
-        incoming.forEach(record => map.set(record.id, record));
+
+        incoming.forEach(record => {
+          if (record && record.id) map.set(record.id, record);
+        });
+
         records = Array.from(map.values());
+
         if (persist()) {
           render();
           alert("बैकअप इम्पोर्ट हो गया।");
@@ -576,8 +596,35 @@ footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
     } catch (error) {
       alert("यह सही JSON बैकअप फ़ाइल नहीं है।");
     }
+
     event.target.value = "";
   });
+
+  $("loginForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    if ($("password").value === PASS) {
+      sessionStorage.setItem("shadPropertyLoggedIn", "yes");
+      $("loginError").textContent = "";
+      $("loginPanel").classList.add("hidden");
+      $("app").classList.remove("hidden");
+      render();
+    } else {
+      $("loginError").textContent = "पासवर्ड गलत है।";
+    }
+  });
+
+  $("logout").addEventListener("click", () => {
+    sessionStorage.removeItem("shadPropertyLoggedIn");
+    $("app").classList.add("hidden");
+    $("loginPanel").classList.remove("hidden");
+    $("password").value = "";
+  });
+
+  if (sessionStorage.getItem("shadPropertyLoggedIn") === "yes") {
+    $("loginPanel").classList.add("hidden");
+    $("app").classList.remove("hidden");
+  }
 
   const converter = {
     decimal: $("decimal"),
@@ -585,28 +632,35 @@ footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
     dhurki: $("dhurki")
   };
 
-  const factors = { decimal: 435.6, dhur: 36, dhurki: 1.8 };
+  const factors = {
+    decimal: 435.6,
+    dhur: 36,
+    dhurki: 1.8
+  };
 
-  Object.entries(converter).forEach(([name, input]) => {
+  Object.entries(converter).forEach(([key, input]) => {
     input.addEventListener("input", () => {
-      Object.entries(converter).forEach(([other, field]) => {
-        if (other !== name) field.value = "";
+      Object.entries(converter).forEach(([otherKey, otherInput]) => {
+        if (otherKey !== key) otherInput.value = "";
       });
 
-      const squareFeet = num(input.value) * factors[name];
-      $("sqft").textContent = fmt(squareFeet, 4) + " sq ft";
-      $("decimalOut").textContent = fmt(squareFeet / 435.6, 6);
-      $("sqm").textContent = fmt(squareFeet * 0.09290304, 4) + " m²";
+      const squareFeet = number(input.value) * factors[key];
+
+      $("sqft").textContent =
+        squareFeet.toLocaleString("en-IN", { maximumFractionDigits: 4 }) + " sq ft";
+
+      $("decimalOut").textContent =
+        (squareFeet / 435.6).toLocaleString("en-IN", { maximumFractionDigits: 6 });
+
+      $("sqm").textContent =
+        (squareFeet * 0.09290304).toLocaleString("en-IN", { maximumFractionDigits: 4 }) + " m²";
     });
   });
 
-  if (sessionStorage.getItem("shadPropertyLoggedIn") === "yes") {
-    showApp();
-  }
-
-  render();
   calculate();
+  render();
 })();
 </script>
+
 </body>
 </html>
