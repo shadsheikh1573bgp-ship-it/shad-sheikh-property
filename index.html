@@ -4,116 +4,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Shad Sheikh Property - निजी MVR रजिस्टर और जमीन रकबा कन्वर्टर">
-<title>Shad Sheikh Property</title>
+<meta name="description" content="Shad Sheikh Property - निजी मौजा MVR रजिस्टर और जमीन शुल्क कैलकुलेटर">
+<meta name="theme-color" content="#dffff0">
+<title>Shad Sheikh Property | Shad Sheikh</title>
 
 <style>
 :root {
-  --bg:#101528;
-  --panel:#1b2540;
-  --green:#00c2a8;
-  --gold:#ffd166;
-  --text:#eef3ff;
-  --muted:#aab6d1;
-  --line:#35415f;
+  --bg:#e5fff1;
+  --card:#ffffff;
+  --green:#087f73;
+  --green2:#139f8b;
+  --text:#173b3a;
+  --muted:#52736b;
+  --line:#a6dfca;
+  --soft:#d9f8e9;
+  --red:#bd3654;
 }
-* { box-sizing:border-box; }
-body {
+*{box-sizing:border-box}
+body{
   margin:0;
-  background:var(--bg);
-  color:var(--text);
   font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  color:var(--text);
+  background:linear-gradient(135deg,#dffff0,#a8f0d0,#f4fff8);
+  min-height:100vh;
 }
-header {
-  padding:28px 18px;
-  background:linear-gradient(125deg,#080d1d,#123d50,#492c86);
-  border-bottom:4px solid var(--gold);
+header{
+  padding:32px 18px;
+  background:linear-gradient(120deg,#c9f8dd,#9ee6c0,#eafff3);
+  border-bottom:5px solid var(--green2);
+  box-shadow:0 8px 22px #176b5520;
 }
-.wrap { max-width:1050px; margin:auto; padding:0 16px; }
-h1 { margin:0; font-size:clamp(28px,5vw,44px); }
-header p,.hint { color:var(--muted); line-height:1.6; }
-.panel {
-  background:var(--panel);
+.wrap{max-width:1100px;margin:auto;padding:0 16px}
+h1{margin:0;font-size:clamp(30px,5vw,46px);font-weight:900}
+header p{margin:10px 0 0;color:#245f59}
+main{max-width:1100px;margin:auto;padding:0 16px}
+.hidden{display:none!important}
+.panel{
+  background:rgba(255,255,255,.96);
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:20px;
+  border-radius:18px;
+  padding:22px;
   margin:20px 0;
+  box-shadow:0 8px 24px #246b5518;
 }
-h2 { margin-top:0; color:#83e8e0; font-size:20px; }
-.grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;
+h2{font-size:20px;color:var(--green);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.field label{display:block;font-weight:700;font-size:13px;margin-bottom:7px}
+input,select{
+  width:100%;padding:12px;border:1px solid #9bcfbd;border-radius:10px;
+  background:#f5fffa;color:var(--text);font:inherit;min-width:0;
 }
-.field label {
-  display:block;
-  margin-bottom:6px;
-  font-size:13px;
-  font-weight:bold;
+input:focus,select:focus{outline:2px solid #45bca3;border-color:var(--green)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+button,.btn{
+  display:inline-block;border:0;border-radius:10px;padding:12px 16px;
+  background:linear-gradient(120deg,var(--green2),var(--green));
+  color:white;font-weight:750;font-size:14px;cursor:pointer;text-decoration:none;
 }
-.field input,.field select {
-  width:100%;
-  min-width:0;
-  padding:12px;
-  border:1px solid #485779;
-  border-radius:9px;
-  background:#0f172b;
-  color:white;
-  font-size:15px;
+button:hover,.btn:hover{filter:brightness(1.06)}
+.btn.alt{background:linear-gradient(120deg,#b9f2d2,#83dfb3);color:#164b40}
+.btn.red{background:var(--red);color:#fff}
+.hint{font-size:13px;color:var(--muted);line-height:1.65}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:15px}
+.mini{
+  padding:14px;border-radius:12px;background:linear-gradient(145deg,#effff7,#d9f8e9);
+  border:1px solid var(--line);min-width:0;
 }
-.btn {
-  border:0;
-  border-radius:9px;
-  padding:11px 15px;
-  cursor:pointer;
-  font-weight:bold;
-  background:var(--green);
-  color:#071b25;
+.mini span{display:block;font-size:12px;color:var(--muted)}
+.mini strong{display:block;font-size:19px;margin-top:6px;color:var(--green);overflow-wrap:anywhere}
+.searchrow{display:flex;gap:10px}
+.searchrow input{flex:1}
+.results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px}
+.record{padding:16px;border:1px solid var(--line);border-left:5px solid var(--green2);border-radius:13px;background:#f8fffb;overflow-wrap:anywhere}
+.record h3{margin:0 0 10px;color:var(--green)}
+.record p{margin:7px 0;font-size:14px}
+.pill{display:inline-block;padding:4px 9px;border-radius:30px;background:#d1f7e5;color:var(--green);font-size:12px}
+.login{max-width:440px;margin:28px auto;border-top:4px solid var(--green2)}
+.error{color:var(--red);font-size:13px}
+footer{text-align:center;padding:25px;color:#37675e;font-size:13px}
+@media(max-width:700px){
+  .grid,.cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .results{grid-template-columns:1fr}
+  .panel{padding:16px}
+  .searchrow{flex-direction:column}
 }
-.btn.gold { background:var(--gold); }
-.btn.red { background:#bd3548; color:white; }
-.actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:14px; }
-.cards {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:10px;
-  margin-top:14px;
-}
-.mini {
-  padding:14px;
-  border:1px solid #46527b;
-  border-radius:10px;
-  overflow-wrap:anywhere;
-}
-.mini span { display:block; color:var(--muted); font-size:12px; }
-.mini strong { display:block; color:var(--gold); margin-top:6px; }
-.results {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-}
-.record {
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:14px;
-  overflow-wrap:anywhere;
-}
-.record h3 { color:#a8dfff; }
-.hidden { display:none!important; }
-.conversion {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-}
-footer { text-align:center; padding:24px; color:var(--muted); }
-@media(max-width:650px) {
-  .grid,.cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .results { grid-template-columns:1fr; }
-  .panel { padding:14px; }
-}
-@media(max-width:420px) {
-  .grid,.cards,.conversion { grid-template-columns:1fr; }
-}
+@media(max-width:430px){.grid,.cards{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -121,440 +96,348 @@ footer { text-align:center; padding:24px; color:var(--muted); }
 <header>
   <div class="wrap">
     <h1>Shad Sheikh Property</h1>
-    <p>मौजा MVR · Stamp Duty · Registration Fee · रकबा कन्वर्टर</p>
+    <p>मौजा MVR · Stamp Duty · Registration Fee का निजी रजिस्टर</p>
   </div>
 </header>
 
-<main class="wrap">
+<main>
+  <section id="loginPanel" class="panel login">
+    <h2>🔐 पासवर्ड से लॉगिन</h2>
+    <p class="hint">अपना निजी रजिस्टर खोलने के लिए पासवर्ड डालें।</p>
+    <form id="loginForm">
+      <div class="field">
+        <label for="password">पासवर्ड</label>
+        <input id="password" type="password" required autocomplete="current-password" placeholder="पासवर्ड डालें">
+      </div>
+      <div class="actions"><button type="submit">लॉगिन करें</button></div>
+      <p id="loginError" class="error"></p>
+    </form>
+  </section>
 
-<section id="loginPanel" class="panel">
-  <h2>🔐 पासवर्ड से लॉगिन</h2>
-  <form id="loginForm">
-    <div class="field">
-      <label for="password">पासवर्ड</label>
-      <input id="password" type="password" required placeholder="पासवर्ड डालें">
-    </div>
-    <div class="actions">
-      <button class="btn" type="submit">लॉगिन करें</button>
-    </div>
-    <p id="loginError" class="hint"></p>
-  </form>
-</section>
+  <div id="app" class="hidden">
+    <section class="panel">
+      <h2>मौजा रिकॉर्ड खोजें</h2>
+      <div class="searchrow">
+        <input id="search" placeholder="मौजा का नाम या थाना नंबर लिखें" autocomplete="off">
+        <button id="clearSearch" type="button" class="btn alt">साफ करें</button>
+      </div>
+      <div id="results" class="results"></div>
+      <p id="noResults" class="hint">अभी कोई रिकॉर्ड नहीं है। नीचे नया रिकॉर्ड जोड़ें।</p>
+    </section>
 
-<div id="app" class="hidden">
+    <section class="panel">
+      <h2 id="formTitle">＋ नया मौजा रिकॉर्ड</h2>
+      <form id="recordForm">
+        <input type="hidden" id="recordId">
+        <div class="grid">
+          <div class="field">
+            <label for="mauja">मौजा का नाम *</label>
+            <input id="mauja" required placeholder="जैसे Kabirpur">
+          </div>
+          <div class="field">
+            <label for="anchal">अंचल *</label>
+            <input id="anchal" required placeholder="जैसे Nathnagar">
+          </div>
+          <div class="field">
+            <label for="thana">थाना नंबर</label>
+            <input id="thana" placeholder="जैसे 326">
+          </div>
+          <div class="field">
+            <label for="rate">1 डिसमिल MVR (₹) *</label>
+            <input id="rate" type="number" min="1" required placeholder="जैसे 800000">
+          </div>
+          <div class="field">
+            <label for="area">रकबा / डिसमिल *</label>
+            <input id="area" type="number" min="0.01" step="any" required placeholder="जैसे 1.656">
+          </div>
+          <div class="field">
+            <label for="type">जमीन का प्रकार *</label>
+            <select id="type" required>
+              <option value="">चुनें</option>
+              <option value="Residential">Residential (आवासीय)</option>
+              <option value="Commercial">Commercial (व्यावसायिक)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="consideration">Consideration Value (₹) *</label>
+            <input id="consideration" type="number" min="1" required placeholder="जैसे 1325000">
+          </div>
+        </div>
 
-<section class="panel">
-  <h2>मौजा खोजें</h2>
-  <div class="actions">
-    <input id="search" placeholder="मौजा का नाम खोजें">
-    <button class="btn gold" id="clearSearch" type="button">साफ करें</button>
+        <div class="cards">
+          <div class="mini"><span>MVR Value</span><strong id="mvrOut">₹0</strong></div>
+          <div class="mini"><span>Stamp Duty (7%)</span><strong id="stampOut">₹0</strong></div>
+          <div class="mini"><span>Registration Fee (2%)</span><strong id="regOut">₹0</strong></div>
+          <div class="mini"><span>LLR (फिक्स)</span><strong>₹550</strong></div>
+          <div class="mini"><span>Discore (फिक्स)</span><strong>₹1,000</strong></div>
+          <div class="mini"><span>Total Challan</span><strong id="totalOut">₹0</strong></div>
+        </div>
+
+        <p class="hint">कैलकुलेशन: Stamp Duty 7% + Registration Fee 2% + LLR ₹550 + Discore ₹1,000. ये दरें आपके दिए गए उदाहरण के अनुसार हैं; आधिकारिक शुल्क अलग हो सकता है।</p>
+        <div class="actions">
+          <button id="saveBtn" type="submit">रिकॉर्ड सेव करें</button>
+          <button id="resetBtn" type="button" class="btn alt">नया फॉर्म</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>रकबा कन्वर्टर</h2>
+      <div class="grid">
+        <div class="field"><label for="decimal">डिसमिल</label><input id="decimal" type="number" min="0" step="any" placeholder="1"></div>
+        <div class="field"><label for="sqft">Square Feet</label><input id="sqft" type="number" min="0" step="any" placeholder="435.6"></div>
+        <div class="field"><label for="dhur">धूर</label><input id="dhur" type="number" min="0" step="any" placeholder="1"></div>
+        <div class="field"><label for="dhurki">धूरकी</label><input id="dhurki" type="number" min="0" step="any" placeholder="1"></div>
+      </div>
+      <p class="hint">1 डिसमिल = 435.6 sq ft · 1 धूर = 36 sq ft · 1 धूरकी = 1.8 sq ft. किसी एक बॉक्स में मात्रा भरें।</p>
+      <div class="cards">
+        <div class="mini"><span>कुल Square Feet</span><strong id="sqftOut">0</strong></div>
+        <div class="mini"><span>डिसमिल</span><strong id="decimalOut">0</strong></div>
+        <div class="mini"><span>वर्ग मीटर</span><strong id="sqmOut">0</strong></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>बैकअप और सुरक्षा</h2>
+      <p class="hint">बैकअप डाउनलोड करके सुरक्षित रखें। यह संस्करण रिकॉर्ड इसी ब्राउज़र में सेव करता है, किसी ऑनलाइन डेटाबेस में नहीं।</p>
+      <div class="actions">
+        <button id="exportBtn" class="btn alt" type="button">JSON बैकअप डाउनलोड</button>
+        <label class="btn alt" for="importFile">बैकअप वापस लाएँ</label>
+        <input id="importFile" class="hidden" type="file" accept="application/json">
+        <button id="logoutBtn" class="btn red" type="button">लॉगआउट</button>
+      </div>
+    </section>
   </div>
-  <div id="results" class="results"></div>
-  <p id="noResults" class="hint">अभी कोई रिकॉर्ड सेव नहीं है।</p>
-</section>
-
-<section class="panel">
-  <h2 id="formTitle">＋ नया मौजा रिकॉर्ड</h2>
-  <form id="recordForm">
-    <input type="hidden" id="recordId">
-    <div class="grid">
-      <div class="field">
-        <label for="mauja">मौजा का नाम *</label>
-        <input id="mauja" required placeholder="मौजा का नाम">
-      </div>
-      <div class="field">
-        <label for="anchal">अंचल</label>
-        <input id="anchal" placeholder="अंचल">
-      </div>
-      <div class="field">
-        <label for="thana">थाना नंबर</label>
-        <input id="thana" placeholder="थाना नंबर">
-      </div>
-      <div class="field">
-        <label for="extent">रकबा (डिसमिल) *</label>
-        <input id="extent" type="number" min="0.001" step="any" required>
-      </div>
-      <div class="field">
-        <label for="consideration">Consideration Value (₹) *</label>
-        <input id="consideration" type="number" min="0" step="any" required>
-      </div>
-      <div class="field">
-        <label for="landType">जमीन का प्रकार *</label>
-        <select id="landType" required>
-          <option value="">चुनें</option>
-          <option value="Residential">आवासीय</option>
-          <option value="Commercial">व्यावसायिक</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="mini"><span>MVR Value</span><strong id="mvrPreview">₹0</strong></div>
-      <div class="mini"><span>Stamp Duty (7%)</span><strong id="stampPreview">₹0</strong></div>
-      <div class="mini"><span>Additional Duty</span><strong id="additionalPreview">₹0</strong></div>
-      <div class="mini"><span>Registration Fee (2%)</span><strong id="registrationPreview">₹0</strong></div>
-      <div class="mini"><span>LLR</span><strong>₹550</strong></div>
-      <div class="mini"><span>Discore</span><strong>₹1,000</strong></div>
-      <div class="mini"><span>Total Challan</span><strong id="totalPreview">₹0</strong></div>
-    </div>
-
-    <div class="actions">
-      <button class="btn" type="submit" id="saveBtn">रिकॉर्ड सेव करें</button>
-      <button class="btn gold" type="button" id="resetBtn">नया फॉर्म</button>
-    </div>
-  </form>
-  <p class="hint">
-    अनुमानित गणना: आवासीय MVR ₹6,00,000/डिसमिल और
-    व्यावसायिक MVR ₹8,00,000/डिसमिल। सरकारी दर और शुल्क
-    आधिकारिक स्रोत से जाँचें।
-  </p>
-</section>
-
-<section class="panel">
-  <h2>📐 रकबा कन्वर्टर</h2>
-  <div class="conversion">
-    <div class="field">
-      <label for="decimal">डिसमिल</label>
-      <input id="decimal" type="number" min="0" step="any" placeholder="जैसे 1.656">
-    </div>
-    <div class="field">
-      <label for="sqftInput">Square Feet</label>
-      <input id="sqftInput" type="number" min="0" step="any" placeholder="जैसे 721.95">
-    </div>
-    <div class="field">
-      <label for="khatta">कट्ठा, धूर और धूरकी</label>
-      <input id="khatta" readonly placeholder="अपने आप निकलेगा">
-    </div>
-    <div class="field">
-      <label for="dhur">धूर</label>
-      <input id="dhur" type="number" min="0" step="any" placeholder="धूर डालें">
-    </div>
-    <div class="field">
-      <label for="dhurki">धूरकी</label>
-      <input id="dhurki" type="number" min="0" step="any" placeholder="धूरकी डालें">
-    </div>
-  </div>
-
-  <div class="cards">
-    <div class="mini"><span>कुल Square Feet</span><strong id="sqft">0 sq ft</strong></div>
-    <div class="mini"><span>डिसमिल</span><strong id="decimalOut">0</strong></div>
-    <div class="mini"><span>वर्ग मीटर</span><strong id="sqm">0 m²</strong></div>
-  </div>
-  <p class="hint">
-    1 डिसमिल = 435.6 sq ft · 1 कट्ठा = 720 sq ft ·
-    1 कट्ठा = 20 धूर · 1 धूर = 36 sq ft ·
-    1 धूर = 20 धूरकी · 1 धूरकी = 1.8 sq ft।
-    स्थानीय माप की पुष्टि करें।
-  </p>
-</section>
-
-<section class="panel">
-  <h2>बैकअप और सुरक्षा</h2>
-  <div class="actions">
-    <button id="export" class="btn gold" type="button">JSON बैकअप डाउनलोड</button>
-    <label class="btn gold" for="importFile">बैकअप इम्पोर्ट</label>
-    <input id="importFile" type="file" accept="application/json" class="hidden">
-    <button id="logout" class="btn red" type="button">लॉगआउट</button>
-  </div>
-  <p class="hint">
-    रिकॉर्ड इस ब्राउज़र में सेव होते हैं। ब्राउज़र डेटा मिटने से
-    रिकॉर्ड जा सकते हैं, इसलिए नियमित बैकअप डाउनलोड करें।
-  </p>
-</section>
-
-</div>
 </main>
+
 <footer>Shad Sheikh Property · निजी MVR रजिस्टर</footer>
 
 <script>
 (() => {
-'use strict';
+  const $ = id => document.getElementById(id);
+  const KEY = "shadSheikhPropertyRecordsV1";
+  const PASSWORD = "Shad@1573";
+  let records = [];
 
-const $ = id => document.getElementById(id);
-const KEY = 'shadSheikhPropertyRecordsV1';
-const PASS = 'Shad@1573';
-
-let records = [];
-try {
-  records = JSON.parse(localStorage.getItem(KEY) || '[]');
-  if (!Array.isArray(records)) records = [];
-} catch {
-  records = [];
-}
-
-const n = v => Number(v) || 0;
-const money = v => '₹' + Math.round(n(v)).toLocaleString('en-IN');
-
-function persist() {
   try {
-    localStorage.setItem(KEY, JSON.stringify(records));
-    return true;
-  } catch {
-    alert('रिकॉर्ड सेव नहीं हुआ। बैकअप डाउनलोड करें।');
-    return false;
-  }
-}
+    records = JSON.parse(localStorage.getItem(KEY) || "[]");
+    if (!Array.isArray(records)) records = [];
+  } catch (e) { records = []; }
 
-function login() {
-  $('loginPanel').classList.add('hidden');
-  $('app').classList.remove('hidden');
-  render();
-}
+  const num = v => Number(v) || 0;
+  const money = v => "₹" + Math.round(num(v)).toLocaleString("en-IN");
+  const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
 
-$('loginForm').addEventListener('submit', e => {
-  e.preventDefault();
-  if ($('password').value === PASS) {
-    sessionStorage.setItem('shadPropertyLoggedIn', 'yes');
-    $('loginError').textContent = '';
-    login();
-  } else {
-    $('loginError').textContent = 'पासवर्ड गलत है।';
-  }
-});
-
-if (sessionStorage.getItem('shadPropertyLoggedIn') === 'yes') login();
-
-$('logout').addEventListener('click', () => {
-  sessionStorage.removeItem('shadPropertyLoggedIn');
-  $('app').classList.add('hidden');
-  $('loginPanel').classList.remove('hidden');
-  $('password').value = '';
-});
-
-function calculateFees() {
-  const area = n($('extent').value);
-  const consideration = n($('consideration').value);
-  const type = $('landType').value;
-  const rate = type === 'Residential' ? 600000 :
-               type === 'Commercial' ? 800000 : 0;
-
-  const mvr = area * rate;
-  const stamp = Math.round(consideration * 0.07);
-  const registration = Math.round(consideration * 0.02);
-  const total = stamp + registration + 1550;
-
-  $('mvrPreview').textContent = money(mvr);
-  $('stampPreview').textContent = money(stamp);
-  $('additionalPreview').textContent = money(0);
-  $('registrationPreview').textContent = money(registration);
-  $('totalPreview').textContent = money(total);
-
-  return { area, consideration, type, rate, mvr, stamp,
-           additional:0, registration, llr:550, discore:1000, total };
-}
-
-['extent','consideration','landType'].forEach(id =>
-  $(id).addEventListener('input', calculateFees)
-);
-
-$('recordForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const calc = calculateFees();
-  const id = $('recordId').value || String(Date.now());
-
-  const rec = {
-    ...calc,
-    id,
-    mauja: $('mauja').value.trim(),
-    anchal: $('anchal').value.trim(),
-    thana: $('thana').value.trim(),
-    updatedAt: new Date().toISOString()
-  };
-
-  const index = records.findIndex(r => r.id === id);
-  if (index >= 0) records[index] = rec;
-  else records.unshift(rec);
-
-  if (persist()) {
-    resetForm();
-    render();
-  }
-});
-
-function resetForm() {
-  $('recordForm').reset();
-  $('recordId').value = '';
-  $('formTitle').textContent = '＋ नया मौजा रिकॉर्ड';
-  $('saveBtn').textContent = 'रिकॉर्ड सेव करें';
-  calculateFees();
-}
-
-$('resetBtn').addEventListener('click', resetForm);
-
-function escapeHtml(value) {
-  return String(value ?? '').replace(/[&<>"']/g, c => ({
-    '&':'&amp;', '<':'&lt;', '>':'&gt;',
-    '"':'&quot;', "'":'&#39;'
-  })[c]);
-}
-
-function render() {
-  const q = $('search').value.trim().toLowerCase();
-  const list = records.filter(r =>
-    [r.mauja,r.anchal,r.thana].join(' ').toLowerCase().includes(q)
-  );
-
-  $('results').innerHTML = list.map(r => `
-    <article class="record">
-      <h3>${escapeHtml(r.mauja)}</h3>
-      <p>अंचल: ${escapeHtml(r.anchal || '—')}</p>
-      <p>थाना: ${escapeHtml(r.thana || '—')}</p>
-      <p>रकबा: ${n(r.area)} डिसमिल</p>
-      <p>MVR Value: ${money(r.mvr)}</p>
-      <p>Stamp Duty: ${money(r.stamp)}</p>
-      <p>Registration Fee: ${money(r.registration)}</p>
-      <p>Total Challan: ${money(r.total)}</p>
-      <div class="actions">
-        <button class="btn gold" data-edit="${escapeHtml(r.id)}">एडिट</button>
-        <button class="btn red" data-delete="${escapeHtml(r.id)}">डिलीट</button>
-      </div>
-    </article>
-  `).join('');
-
-  $('noResults').classList.toggle('hidden', list.length > 0);
-}
-
-$('search').addEventListener('input', render);
-$('clearSearch').addEventListener('click', () => {
-  $('search').value = '';
-  render();
-});
-
-$('results').addEventListener('click', e => {
-  const edit = e.target.closest('[data-edit]');
-  const del = e.target.closest('[data-delete]');
-
-  if (edit) {
-    const r = records.find(x => x.id === edit.dataset.edit);
-    if (!r) return;
-
-    $('recordId').value = r.id;
-    $('mauja').value = r.mauja || '';
-    $('anchal').value = r.anchal || '';
-    $('thana').value = r.thana || '';
-    $('extent').value = r.area || '';
-    $('consideration').value = r.consideration || '';
-    $('landType').value = r.type || r.landType || '';
-
-    $('formTitle').textContent = '✎ रिकॉर्ड एडिट करें';
-    $('saveBtn').textContent = 'बदलाव सेव करें';
-    calculateFees();
-    $('recordForm').scrollIntoView({ behavior:'smooth' });
-  }
-
-  if (del) {
-    const r = records.find(x => x.id === del.dataset.delete);
-    if (r && confirm('क्या यह रिकॉर्ड डिलीट करना है?')) {
-      records = records.filter(x => x.id !== r.id);
-      persist();
-      render();
+  function saveStorage() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(records));
+      return true;
+    } catch (e) {
+      alert("रिकॉर्ड सेव नहीं हुआ। ब्राउज़र स्टोरेज जाँचें।");
+      return false;
     }
   }
-});
 
-$('export').addEventListener('click', () => {
-  const blob = new Blob([JSON.stringify(records,null,2)], {
-    type:'application/json'
+  function calculate() {
+    const area = num($("area").value);
+    const rate = num($("rate").value);
+    const consideration = num($("consideration").value);
+    const mvr = area * rate;
+    const chargeable = Math.max(mvr, consideration);
+    const stamp = Math.round(chargeable * 0.07);
+    const reg = Math.round(chargeable * 0.02);
+    const total = stamp + reg + 550 + 1000;
+
+    $("mvrOut").textContent = money(mvr);
+    $("stampOut").textContent = money(stamp);
+    $("regOut").textContent = money(reg);
+    $("totalOut").textContent = money(total);
+
+    return {
+      area, rate, mvr, consideration, chargeable,
+      stamp, reg, llr:550, discore:1000, total,
+      type:$("type").value
+    };
+  }
+
+  ["area","rate","consideration","type"].forEach(id => {
+    $(id).addEventListener("input", calculate);
   });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'shad-sheikh-property-backup.json';
-  a.click();
-  URL.revokeObjectURL(url);
-});
 
-$('importFile').addEventListener('change', async e => {
-  const file = e.target.files[0];
-  if (!file) return;
+  function resetForm() {
+    $("recordForm").reset();
+    $("recordId").value = "";
+    $("formTitle").textContent = "＋ नया मौजा रिकॉर्ड";
+    $("saveBtn").textContent = "रिकॉर्ड सेव करें";
+    calculate();
+  }
 
-  try {
-    const incoming = JSON.parse(await file.text());
-    if (!Array.isArray(incoming)) throw new Error('Invalid backup');
+  function render() {
+    const q = $("search").value.trim().toLowerCase();
+    const filtered = records.filter(r =>
+      [r.mauja,r.anchal,r.thana,r.type].join(" ").toLowerCase().includes(q)
+    );
 
-    if (confirm('बैकअप के रिकॉर्ड मौजूदा रिकॉर्ड के साथ जोड़ें?')) {
-      const map = new Map(records.map(r => [r.id, r]));
-      incoming.forEach(r => {
-        if (r && r.id) map.set(r.id, r);
-      });
-      records = [...map.values()];
-      if (persist()) render();
+    $("results").innerHTML = filtered.map(r => `
+      <article class="record">
+        <h3>${esc(r.mauja)} <span class="pill">थाना ${esc(r.thana || "—")}</span></h3>
+        <p><b>अंचल:</b> ${esc(r.anchal)}</p>
+        <p><b>जमीन:</b> ${esc(r.type === "Residential" ? "आवासीय" : "व्यावसायिक")}</p>
+        <p><b>रकबा:</b> ${esc(r.area)} डिसमिल</p>
+        <p><b>1 डिसमिल MVR:</b> ${money(r.rate)}</p>
+        <p><b>MVR Value:</b> ${money(r.mvr)}</p>
+        <p><b>Consideration:</b> ${money(r.consideration)}</p>
+        <p><b>Stamp Duty:</b> ${money(r.stamp)}</p>
+        <p><b>Registration Fee:</b> ${money(r.reg)}</p>
+        <p><b>LLR:</b> ₹550</p>
+        <p><b>Discore:</b> ₹1,000</p>
+        <p><b>Total Challan:</b> ${money(r.total)}</p>
+        <div class="actions">
+          <button type="button" class="btn alt" data-edit="${esc(r.id)}">एडिट करें</button>
+          <button type="button" class="btn red" data-delete="${esc(r.id)}">डिलीट</button>
+        </div>
+      </article>
+    `).join("");
+
+    $("noResults").classList.toggle("hidden", filtered.length > 0);
+  }
+
+  $("loginForm").addEventListener("submit", e => {
+    e.preventDefault();
+    if ($("password").value === PASSWORD) {
+      sessionStorage.setItem("shadPropertyLoggedIn","yes");
+      $("loginError").textContent = "";
+      $("loginPanel").classList.add("hidden");
+      $("app").classList.remove("hidden");
+      render();
+    } else {
+      $("loginError").textContent = "पासवर्ड गलत है।";
     }
-  } catch {
-    alert('यह सही JSON बैकअप नहीं है।');
+  });
+
+  if (sessionStorage.getItem("shadPropertyLoggedIn") === "yes") {
+    $("loginPanel").classList.add("hidden");
+    $("app").classList.remove("hidden");
   }
 
-  e.target.value = '';
-});
+  $("logoutBtn").addEventListener("click", () => {
+    sessionStorage.removeItem("shadPropertyLoggedIn");
+    $("app").classList.add("hidden");
+    $("loginPanel").classList.remove("hidden");
+    $("password").value = "";
+  });
 
-/* रकबा कन्वर्टर */
-const decimal = $('decimal');
-const sqftInput = $('sqftInput');
-const dhur = $('dhur');
-const dhurki = $('dhurki');
-const khatta = $('khatta');
-let busy = false;
+  $("recordForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const c = calculate();
+    if (!c.area || !c.rate || !c.consideration || !$("mauja").value.trim() ||
+        !$("anchal").value.trim() || !c.type) {
+      alert("सभी जरूरी जानकारी भरें।");
+      return;
+    }
 
-function updateMeasure(source) {
-  if (busy) return;
-  busy = true;
+    const id = $("recordId").value || String(Date.now());
+    const record = {
+      ...c, id,
+      mauja:$("mauja").value.trim(),
+      anchal:$("anchal").value.trim(),
+      thana:$("thana").value.trim(),
+      updatedAt:new Date().toISOString()
+    };
+    const index = records.findIndex(r => r.id === id);
+    if (index >= 0) records[index] = record;
+    else records.unshift(record);
 
-  let sqft;
-  if (source === 'decimal') {
-    sqft = n(decimal.value) * 435.6;
-  } else if (source === 'sqft') {
-    sqft = n(sqftInput.value);
-  } else if (source === 'dhur') {
-    sqft = n(dhur.value) * 36;
-  } else {
-    sqft = n(dhurki.value) * 1.8;
-  }
+    if (saveStorage()) {
+      resetForm();
+      $("search").value = record.mauja;
+      render();
+      $("recordForm").scrollIntoView({behavior:"smooth"});
+    }
+  });
 
-  // निकटतम धूरकी तक राउंड करके पूर्ण इकाइयों में बदलें
-  const totalDhurki = Math.round(sqft / 1.8);
-  const khattas = Math.floor(totalDhurki / 400);
-  const remainder = totalDhurki - khattas * 400;
-  const dhurs = Math.floor(remainder / 20);
-  const dhurkis = remainder - dhurs * 20;
-  const roundedSqft = totalDhurki * 1.8;
+  $("resetBtn").addEventListener("click", resetForm);
+  $("search").addEventListener("input", render);
+  $("clearSearch").addEventListener("click", () => {
+    $("search").value = "";
+    render();
+  });
 
-  if (source !== 'decimal') {
-    decimal.value = sqft
-      ? (sqft / 435.6).toFixed(6).replace(/0+$/,'').replace(/\.$/,'')
-      : '';
-  }
+  $("results").addEventListener("click", e => {
+    const edit = e.target.closest("[data-edit]");
+    const del = e.target.closest("[data-delete]");
 
-  if (source !== 'sqft') {
-    sqftInput.value = sqft ? Number(sqft.toFixed(4)) : '';
-  }
+    if (edit) {
+      const r = records.find(x => x.id === edit.dataset.edit);
+      if (!r) return;
+      $("recordId").value = r.id;
+      $("mauja").value = r.mauja;
+      $("anchal").value = r.anchal;
+      $("thana").value = r.thana || "";
+      $("rate").value = r.rate;
+      $("area").value = r.area;
+      $("type").value = r.type;
+      $("consideration").value = r.consideration;
+      $("formTitle").textContent = "रिकॉर्ड एडिट करें";
+      $("saveBtn").textContent = "बदलाव सेव करें";
+      calculate();
+      $("recordForm").scrollIntoView({behavior:"smooth"});
+    }
 
-  dhur.value = dhurs;
-  dhurki.value = dhurkis;
+    if (del) {
+      const r = records.find(x => x.id === del.dataset.delete);
+      if (r && confirm(r.mauja + " का रिकॉर्ड डिलीट करें?")) {
+        records = records.filter(x => x.id !== r.id);
+        if (saveStorage()) render();
+      }
+    }
+  });
 
-  khatta.value = khattas + ' कट्ठा ' +
-                 dhurs + ' धूर ' +
-                 dhurkis + ' धूरकी';
+  $("exportBtn").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify(records,null,2)], {type:"application/json"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "shad-sheikh-property-backup.json";
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
 
-  $('sqft').textContent =
-    roundedSqft.toLocaleString('en-IN',{maximumFractionDigits:2}) + ' sq ft';
+  $("importFile").addEventListener("change", async e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    try {
+      const data = JSON.parse(await file.text());
+      if (!Array.isArray(data)) throw new Error("Invalid backup");
+      if (confirm("मौजूदा रिकॉर्ड की जगह बैकअप लोड करें?")) {
+        records = data;
+        if (saveStorage()) render();
+      }
+    } catch (err) {
+      alert("सही JSON बैकअप फ़ाइल चुनें।");
+    }
+    e.target.value = "";
+  });
 
-  $('decimalOut').textContent =
-    (roundedSqft / 435.6).toLocaleString('en-IN',{maximumFractionDigits:6});
+  const converters = ["decimal","sqft","dhur","dhurki"];
+  converters.forEach(id => $(id).addEventListener("input", () => {
+    const values = {
+      decimal:num($("decimal").value) * 435.6,
+      sqft:num($("sqft").value),
+      dhur:num($("dhur").value) * 36,
+      dhurki:num($("dhurki").value) * 1.8
+    };
+    const source = id;
+    const squareFeet = values[source];
+    converters.filter(x => x !== source).forEach(x => $(x).value = "");
+    $("sqftOut").textContent = squareFeet.toLocaleString("en-IN",{maximumFractionDigits:4}) + " sq ft";
+    $("decimalOut").textContent = (squareFeet / 435.6).toLocaleString("en-IN",{maximumFractionDigits:6});
+    $("sqmOut").textContent = (squareFeet * 0.09290304).toLocaleString("en-IN",{maximumFractionDigits:4}) + " m²";
+  }));
 
-  $('sqm').textContent =
-    (roundedSqft * 0.09290304).toLocaleString('en-IN',{maximumFractionDigits:4}) + ' m²';
-
-  busy = false;
-}
-
-decimal.addEventListener('input', () => updateMeasure('decimal'));
-sqftInput.addEventListener('input', () => updateMeasure('sqft'));
-dhur.addEventListener('input', () => updateMeasure('dhur'));
-dhurki.addEventListener('input', () => updateMeasure('dhurki'));
-
-calculateFees();
-render();
-
+  calculate();
+  render();
 })();
 </script>
 </body>
